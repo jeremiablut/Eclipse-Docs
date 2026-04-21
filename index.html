@@ -285,9 +285,9 @@
       <div class="col-md-3">
         <div class="stat-card">
           <div class="stat-icon success"><i class="bi bi-download"></i></div>
-          <div class="stat-value">89,432</div>
+          <div class="stat-value" id="download-count">1,643</div>
           <div class="stat-label">Total Downloads</div>
-          <div class="stat-change positive"><i class="bi bi-arrow-up"></i> 15% from last month</div>
+          <div class="stat-change positive"><i class="bi bi-arrow-up"></i> Live from Modrinth</div>
         </div>
       </div>
       <div class="col-md-3">
@@ -412,5 +412,16 @@
       </div>
     </div>
   </main>
+
+  <script>
+    // Fetch live download count from Modrinth API
+    fetch('https://api.modrinth.com/v2/project/eclipse')
+      .then(response => response.json())
+      .then(data => {
+        const count = data.downloads.toLocaleString();
+        document.getElementById('download-count').textContent = count;
+      })
+      .catch(err => console.log('Could not fetch download count:', err));
+  </script>
 </body>
 </html>
