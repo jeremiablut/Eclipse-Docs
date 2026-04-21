@@ -263,7 +263,7 @@
     <!-- Topbar -->
     <header class="topbar">
       <div class="topbar-title">Overview</div>
-      <button class="btn btn-light"><i class="bi bi-gear"></i> Web</button>
+      <button class="btn btn-light" onclick=""><i class="bi bi-gear"></i> Web</button>
     </header>
 
     <!-- Stats Cards -->
@@ -315,6 +315,9 @@
       if (latestDownloadUrl) {
         window.open(latestDownloadUrl, '_blank');
       }
+    }
+    function openWeb() {
+      window.open('https://modrinth.com/mod/eclipse_client', '_blank');
     }
   </script>
 </body>
