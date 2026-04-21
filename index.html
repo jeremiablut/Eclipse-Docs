@@ -249,7 +249,6 @@
       background: var(--card-bg);
       border: 1px solid var(--border-color);
       color: #fff;
-      --topbar-height: 1000px;
     }
     
     .btn-light:hover {
@@ -322,5 +321,10 @@
       window.open('https://modrinth.com/mod/eclipse_client');
     }
   </script>
+  <header class="topbar">
+      <div class="topbar-title">Overview</div>
+      <button class="btn btn-light" onclick="openDocs()"><i class="bi bi-book"></i> Docs</button>
+      <button class="btn btn-light" onclick="openWeb()"><i class="bi bi-globe"></i> </button>
+    </header>
 </body>
 </html>
