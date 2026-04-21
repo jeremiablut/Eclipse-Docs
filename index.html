@@ -284,10 +284,10 @@
       </div>
       <div class="col-md-6">
         <div class="stat-card">
-          <div class="stat-icon info"><i class="bi bi-fire"></i></div>
-          <div class="stat-value">0</div>
-          <div class="stat-label">Heats</div>
-          <div class="stat-change"><i class="bi bi-dash"></i> Coming soon</div>
+          <div class="stat-icon warning"><i class="bi bi-heart"></i></div>
+          <div class="stat-value" id="likes-count">2</div>
+          <div class="stat-label">Likes</div>
+          <div class="stat-change positive"><i class="bi bi-arrow-up\"></i> Live from Modrinth</div>
         </div>
       </div>
     </div>
@@ -297,6 +297,7 @@
       .then(response => response.json())
       .then(data => {
         document.getElementById('download-count').textContent = data.downloads.toLocaleString();
+        document.getElementById('likes-count').textContent = data.followers.toLocaleString();
       })
       .catch(err => console.log('Could not fetch stats:', err));
   </script>
