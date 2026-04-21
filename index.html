@@ -331,91 +331,9 @@
         </div>
       </div>
     </div>
-
-    <!-- Recent Mods Table -->
-    <div class="row g-4 mt-2">
-      <div class="col-12">
-        <div class="card">
-          <div class="card-header d-flex justify-content-between align-items-center">
-            <span>Recent Mod Uploads</span>
-            <button class="btn btn-sm btn-primary">View All</button>
-          </div>
-          <div class="card-body p-0">
-            <table class="table">
-              <thead>
-                <tr>
-                  <th>Mod Name</th>
-                  <th>Author</th>
-                  <th>Version</th>
-                  <th>Downloads</th>
-                  <th>Status</th>
-                  <th>Uploaded</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>Enhanced Graphics Pack</td>
-                  <td>
-                    <div class="d-flex align-items-center gap-2">
-                      <div class="user-avatar" style="width: 28px; height: 28px; font-size: 0.7rem;">JD</div>
-                      John Doe
-                    </div>
-                  </td>
-                  <td>v2.4.0</td>
-                  <td>12,450</td>
-                  <td><span class="status-badge success">Published</span></td>
-                  <td>Apr 21, 2026</td>
-                </tr>
-                <tr>
-                  <td>Better UI Mod</td>
-                  <td>
-                    <div class="d-flex align-items-center gap-2">
-                      <div class="user-avatar" style="width: 28px; height: 28px; font-size: 0.7rem; background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">SM</div>
-                      Sarah Miller
-                    </div>
-                  </td>
-                  <td>v1.8.2</td>
-                  <td>8,234</td>
-                  <td><span class="status-badge warning">Pending Review</span></td>
-                  <td>Apr 20, 2026</td>
-                </tr>
-                <tr>
-                  <td>New Weapons Bundle</td>
-                  <td>
-                    <div class="d-flex align-items-center gap-2">
-                      <div class="user-avatar" style="width: 28px; height: 28px; font-size: 0.7rem; background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">AK</div>
-                      Alex Kim
-                    </div>
-                  </td>
-                  <td>v3.1.0</td>
-                  <td>5,892</td>
-                  <td><span class="status-badge success">Published</span></td>
-                  <td>Apr 19, 2026</td>
-                </tr>
-                <tr>
-                  <td>Performance Booster</td>
-                  <td>
-                    <div class="d-flex align-items-center gap-2">
-                      <div class="user-avatar" style="width: 28px; height: 28px; font-size: 0.7rem; background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);">LW</div>
-                      Lisa Wang
-                    </div>
-                  </td>
-                  <td>v1.2.5</td>
-                  <td>3,201</td>
-                  <td><span class="status-badge error">Rejected</span></td>
-                  <td>Apr 18, 2026</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-    </div>
-  </main>
-
   <script>
     // Fetch live download count from Modrinth API
-    fetch('https://api.modrinth.com/v2/project/eclipse')
+    fetch('https://api.modrinth.com/v2/project/eclipse_client')
       .then(response => response.json())
       .then(data => {
         const count = data.downloads.toLocaleString();
