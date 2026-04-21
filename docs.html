@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <!-- Wichtig für die Darstellung auf Handys: -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meine erste Webseite</title>
+    
+    <!-- Bootstrap Icons laden -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    
+    <!-- Ein bisschen CSS für ein schöneres Design -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 50px;
+            text-align: center;
+            background-color: #f8f9fa;
+        }
+        .btn {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+        .btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Inhalt der Webseite -->
+    <h1>Willkommen auf meiner Webseite! <i class="bi bi-globe"></i></h1>
+    <p>Das ist ein einfaches HTML-Dokument.</p>
+
+    <!-- Dein Button mit Icon und onclick -->
+    <button class="btn" onclick="openDocs()">
+        <i class="bi bi-journal-text"></i> Öffne Dokumentation
+    </button>
+
+    <!-- JavaScript-Bereich -->
+    <script>
+        function openDocs() {
+            // Hier passiert etwas, wenn man auf den Button klickt
+            alert("Button wurde geklickt! Hier könnte jetzt die Weiterleitung stehen.");
+            
+            // Um wirklich weiterzuleiten (z.B. zu /1/2), würdest du das hier nutzen:
+            // window.location.href = '/1/2';
+        }
+    </script>
+
+</body>
+</html>
