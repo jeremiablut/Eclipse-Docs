@@ -258,34 +258,34 @@
     <div class="row g-4 mb-4">
       <div class="col-md-3">
         <div class="stat-card">
-          <div class="stat-icon primary"><i class="bi bi-currency-dollar"></i></div>
-          <div class="stat-value">$24,500</div>
-          <div class="stat-label">Total Revenue</div>
+          <div class="stat-icon primary"><i class="bi bi-eye"></i></div>
+          <div class="stat-value">24,500</div>
+          <div class="stat-label">Total Views</div>
           <div class="stat-change positive"><i class="bi bi-arrow-up"></i> 12% from last month</div>
         </div>
       </div>
       <div class="col-md-3">
         <div class="stat-card">
-          <div class="stat-icon success"><i class="bi bi-people"></i></div>
-          <div class="stat-value">1,234</div>
-          <div class="stat-label">Total Users</div>
+          <div class="stat-icon success"><i class="bi bi-download"></i></div>
+          <div class="stat-value">8,234</div>
+          <div class="stat-label">Total Downloads</div>
+          <div class="stat-change positive"><i class="bi bi-arrow-up"></i> 18% from last month</div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="stat-card">
+          <div class="stat-icon warning"><i class="bi bi-people"></i></div>
+          <div class="stat-value">1,456</div>
+          <div class="stat-label">Active Users</div>
+          <div class="stat-change negative"><i class="bi bi-arrow-down"></i> 5% from last month</div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="stat-card">
+          <div class="stat-icon info"><i class="bi bi-clock-history"></i></div>
+          <div class="stat-value">3,200</div>
+          <div class="stat-label">Avg. Session</div>
           <div class="stat-change positive"><i class="bi bi-arrow-up"></i> 8% from last month</div>
-        </div>
-      </div>
-      <div class="col-md-3">
-        <div class="stat-card">
-          <div class="stat-icon warning"><i class="bi bi-cart"></i></div>
-          <div class="stat-value">456</div>
-          <div class="stat-label">Orders</div>
-          <div class="stat-change negative"><i class="bi bi-arrow-down"></i> 3% from last month</div>
-        </div>
-      </div>
-      <div class="col-md-3">
-        <div class="stat-card">
-          <div class="stat-icon info"><i class="bi bi-eye"></i></div>
-          <div class="stat-value">8,900</div>
-          <div class="stat-label">Page Views</div>
-          <div class="stat-change positive"><i class="bi bi-arrow-up"></i> 24% from last month</div>
         </div>
       </div>
     </div>
@@ -294,96 +294,96 @@
     <div class="row g-4">
       <div class="col-md-8">
         <div class="card">
-          <div class="card-header">Revenue Overview</div>
+          <div class="card-header">Views & Downloads Trend</div>
           <div class="card-body">
             <div class="chart-placeholder">
-              <div><i class="bi bi-bar-chart" style="font-size: 3rem; margin-bottom: 10px;"></i><br>Chart visualization would go here</div>
+              <div><i class="bi bi-graph-down" style="font-size: 3rem; margin-bottom: 10px;"></i><br>Chart visualization would go here</div>
             </div>
           </div>
         </div>
       </div>
       <div class="col-md-4">
         <div class="card">
-          <div class="card-header">Traffic Sources</div>
+          <div class="card-header">Top Content</div>
           <div class="card-body">
             <div class="chart-placeholder">
-              <div><i class="bi bi-pie-chart" style="font-size: 3rem; margin-bottom: 10px;"></i><br>Pie chart would go here</div>
+              <div><i class="bi bi-list-ol" style="font-size: 3rem; margin-bottom: 10px;"></i><br>Top list would go here</div>
             </div>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- Recent Orders Table -->
+    <!-- Recent Downloads Table -->
     <div class="row g-4 mt-2">
       <div class="col-12">
         <div class="card">
           <div class="card-header d-flex justify-content-between align-items-center">
-            <span>Recent Orders</span>
+            <span>Recent Downloads</span>
             <button class="btn btn-sm btn-primary">View All</button>
           </div>
           <div class="card-body p-0">
             <table class="table">
               <thead>
                 <tr>
-                  <th>Order ID</th>
-                  <th>Customer</th>
-                  <th>Product</th>
-                  <th>Amount</th>
+                  <th>File</th>
+                  <th>User</th>
+                  <th>Version</th>
+                  <th>Size</th>
                   <th>Status</th>
                   <th>Date</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td>#ORD-001</td>
+                  <td>Eclipse-Setup.exe</td>
                   <td>
                     <div class="d-flex align-items-center gap-2">
                       <div class="user-avatar" style="width: 28px; height: 28px; font-size: 0.7rem;">JD</div>
                       John Doe
                     </div>
                   </td>
-                  <td>Premium Plan</td>
-                  <td>$199.00</td>
+                  <td>v2.4.0</td>
+                  <td>245 MB</td>
                   <td><span class="status-badge success">Completed</span></td>
                   <td>Apr 21, 2026</td>
                 </tr>
                 <tr>
-                  <td>#ORD-002</td>
+                  <td>Eclipse-Setup.dmg</td>
                   <td>
                     <div class="d-flex align-items-center gap-2">
                       <div class="user-avatar" style="width: 28px; height: 28px; font-size: 0.7rem; background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">SM</div>
                       Sarah Miller
                     </div>
                   </td>
-                  <td>Basic Plan</td>
-                  <td>$49.00</td>
-                  <td><span class="status-badge warning">Pending</span></td>
+                  <td>v2.4.0</td>
+                  <td>198 MB</td>
+                  <td><span class="status-badge warning">In Progress</span></td>
                   <td>Apr 20, 2026</td>
                 </tr>
                 <tr>
-                  <td>#ORD-003</td>
+                  <td>Eclipse-Setup.tar.gz</td>
                   <td>
                     <div class="d-flex align-items-center gap-2">
                       <div class="user-avatar" style="width: 28px; height: 28px; font-size: 0.7rem; background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">AK</div>
                       Alex Kim
                     </div>
                   </td>
-                  <td>Enterprise</td>
-                  <td>$499.00</td>
+                  <td>v2.3.5</td>
+                  <td>182 MB</td>
                   <td><span class="status-badge success">Completed</span></td>
                   <td>Apr 19, 2026</td>
                 </tr>
                 <tr>
-                  <td>#ORD-004</td>
+                  <td>Eclipse-Setup.msi</td>
                   <td>
                     <div class="d-flex align-items-center gap-2">
                       <div class="user-avatar" style="width: 28px; height: 28px; font-size: 0.7rem; background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);">LW</div>
                       Lisa Wang
                     </div>
                   </td>
-                  <td>Pro Plan</td>
-                  <td>$149.00</td>
+                  <td>v2.4.0</td>
+                  <td>210 MB</td>
                   <td><span class="status-badge error">Failed</span></td>
                   <td>Apr 18, 2026</td>
                 </tr>
