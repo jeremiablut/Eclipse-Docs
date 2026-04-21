@@ -312,7 +312,6 @@
 
       <br>
 
-      <!-- Geplantes Update -->
       <h3>Modmenu UPDATE x.x.x</h3>
       <ul class="changelog-list">
         <li><i class="bi bi-square text-secondary"></i> Modmenu Configuration</li>
@@ -321,14 +320,34 @@
     </section>
   </main>
 
-  <!-- JavaScript für das Highlighting in der Seitenleiste -->
   <script>
     const navLinks = document.querySelectorAll('.sidebar-nav .nav-link');
+    const sections = document.querySelectorAll('section');
 
     navLinks.forEach(link => {
       link.addEventListener('click', function() {
         navLinks.forEach(l => l.classList.remove('active'));
         this.classList.add('active');
+      });
+    });
+
+    window.addEventListener('scroll', () => {
+      let current = '';
+
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        
+        if (scrollY >= (sectionTop - 60)) {
+          current = section.getAttribute('id');
+        }
+      });
+
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href').includes(current) && current !== '') {
+          link.classList.add('active');
+        }
       });
     });
   </script>
