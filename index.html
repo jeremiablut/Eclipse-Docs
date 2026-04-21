@@ -318,15 +318,12 @@
     function openWeb() {
       window.open('https://modrinth.com/mod/eclipse_client');
     }
-    function openDoc() {
-      window.open('https://eclipsemc.vercel.app/docs');
-    }
   </script>
   <header class="topbar">
       <div class="topbar-title"></div>
     </header>
     <div class="col-md-4">
-        <div class="stat-card clickable" onclick="openDoc()" style="cursor: pointer;">
+        <div class="stat-card clickable" onclick="window.location.href='/docs'" style="cursor: pointer;">
           <div class="stat-icon info"><i class="bi bi-book-half"></i></div>
           <div class="stat-value" id="version-count">Documentation</div>
         </div>
