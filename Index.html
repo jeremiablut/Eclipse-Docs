@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eclipse Dashboard</title>
+  <link rel="icon" type="image/webp" href="https://cdn.modrinth.com/data/Li0LW6mT/c74cf33e52f8ce22753e6310dcd8268deb27427_96.webp">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    :root {
+      --sidebar-width: 260px;
+      --topbar-height: 60px;
+      --primary-color: #00b670;
+      --bg-color: #0f0f17;
+      --card-bg: #1b1b26;
+      --text-muted: #8b8b99;
+      --border-color: #2a2a3a;
+    }
+    
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg-color);
+      color: #fff;
+    }
+    
+    .sidebar {
+      position: fixed;
+      left: 0;
+      top: 0;
+      width: var(--sidebar-width);
+      height: 100vh;
+      background: linear-gradient(180deg, #1a1625 0%, #0f0f17 100%);
+      color: white;
+      padding: 20px;
+      z-index: 100;
+      border-right: 1px solid var(--border-color);
+    }
+    
+    .sidebar-brand {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 40px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--primary-color);
+    }
+    
+    .sidebar-nav {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    
+    .sidebar-nav li {
+      margin-bottom: 8px;
+    }
+    
+    .sidebar-nav a {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 16px;
+      color: var(--text-muted);
+      text-decoration: none;
+      border-radius: 8px;
+      transition: all 0.2s;
+    }
+    
+    .sidebar-nav a:hover,
+    .sidebar-nav a.active {
+      background: rgba(0, 182, 112, 0.15);
+      color: var(--primary-color);
+    }
+    
+    .main-content {
+      margin-left: 0;
+      padding: 20px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    
+    .topbar {
+      background: var(--card-bg);
+      height: var(--topbar-height);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 24px;
+      margin-bottom: 24px;
+      border: 1px solid var(--border-color);
+    }
+    
+    .topbar-title {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: #fff;
+    }
+    
+    .topbar-actions {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    
+    .stat-card {
+      background: var(--card-bg);
+      border-radius: 12px;
+      padding: 24px;
+      border: 1px solid var(--border-color);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    
+    .stat-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 20px rgba(0, 182, 112, 0.15);
+      border-color: var(--primary-color);
+    }
+    
+    .stat-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      margin-bottom: 16px;
+    }
+    
+    .stat-icon.primary { background: rgba(0, 182, 112, 0.15); color: var(--primary-color); }
+    .stat-icon.success { background: rgba(0, 182, 112, 0.1); color: #4ade80; }
+    .stat-icon.warning { background: rgba(251, 191, 36, 0.15); color: #fbbf24; }
+    .stat-icon.info { background: rgba(139, 92, 246, 0.15); color: #a78bfa; }
+    
+    .stat-value {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+    
+    .stat-label {
+      color: var(--text-muted);
+      font-size: 0.875rem;
+    }
+    
+    .stat-change {
+      font-size: 0.75rem;
+      margin-top: 8px;
+    }
+    
+    .stat-change.positive { color: var(--primary-color); }
+    .stat-change.negative { color: #f87171; }
+    
+    .card {
+      background: var(--card-bg);
+      border-radius: 12px;
+      border: 1px solid var(--border-color);
+    }
+    
+    .card-header {
+      padding: 20px 24px;
+      border-bottom: 1px solid var(--border-color);
+      font-weight: 600;
+      color: #fff;
+    }
+    
+    .card-body {
+      padding: 24px;
+    }
+    
+    .table {
+      margin: 0;
+      color: #fff;
+    }
+    
+    .table th {
+      font-weight: 600;
+      color: var(--text-muted);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      border-bottom: 1px solid var(--border-color);
+      padding: 12px 16px;
+      background: rgba(0, 0, 0, 0.2);
+    }
+    
+    .table td {
+      padding: 16px;
+      vertical-align: middle;
+      border-bottom: 1px solid var(--border-color);
+    }
+    
+    .table tr:hover {
+      background: rgba(0, 182, 112, 0.05);
+    }
+    
+    .status-badge {
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 500;
+    }
+    
+    .status-badge.success { background: rgba(0, 182, 112, 0.15); color: var(--primary-color); }
+    .status-badge.warning { background: rgba(251, 191, 36, 0.15); color: #fbbf24; }
+    .status-badge.error { background: rgba(248, 113, 113, 0.15); color: #f87171; }
+    
+    .user-avatar {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #00b670 0%, #00a85f 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 600;
+      font-size: 0.875rem;
+    }
+    
+    .chart-placeholder {
+      height: 200px;
+      background: linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.1) 100%);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-muted);
+      border: 1px dashed var(--border-color);
+    }
+    
+    .btn-primary {
+      background: var(--primary-color);
+      border-color: var(--primary-color);
+    }
+    
+    .btn-primary:hover {
+      background: #00a85f;
+      border-color: #00a85f;
+    }
+    
+    .btn-light {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      color: #fff;
+    }
+    
+    .btn-light:hover {
+      background: #252532;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+  <!-- Main Content -->
+  <main class="main-content">
+    <!-- Topbar -->
+    <header class="topbar">
+      <div class="topbar-title">Overview</div>
+    </header>
+
+    <!-- Stats Cards -->
+    <div class="row g-4 mb-4">
+      <div class="col-md-4">
+        <div class="stat-card">
+          <div class="stat-icon success"><i class="bi bi-download"></i></div>
+          <div class="stat-value" id="download-count">225</div>
+          <div class="stat-label">Total Downloads</div>
+          <div class="stat-change positive"><i class="bi bi-arrow-up"></i> Live from Modrinth</div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="stat-card">
+          <div class="stat-icon warning"><i class="bi bi-heart"></i></div>
+          <div class="stat-value" id="likes-count">2</div>
+          <div class="stat-label">Likes</div>
+          <div class="stat-change positive"><i class="bi bi-arrow-up"></i> Live from Modrinth</div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="stat-card clickable" onclick="downloadLatest()" style="cursor: pointer;">
+          <div class="stat-icon info"><i class="bi bi-tag"></i></div>
+          <div class="stat-value" id="version-count">1.1.1</div>
+          <div class="stat-label">Latest Version <i class="bi bi-download ms-1"></i></div>
+          <div class="stat-change"><i class="bi bi-calendar"></i> Apr 21, 2026</div>
+        </div>
+      </div>
+    </div>
+  <script>
+    let latestDownloadUrl = '';
+
+    // Fetch live stats from Modrinth API
+    Promise.all([
+      fetch('https://api.modrinth.com/v2/project/eclipse_client').then(r => r.json()),
+      fetch('https://api.modrinth.com/v2/project/eclipse_client/version').then(r => r.json())
+    ])
+      .then(([projectData, versions]) => {
+        document.getElementById('download-count').textContent = projectData.downloads.toLocaleString();
+        document.getElementById('likes-count').textContent = projectData.followers.toLocaleString();
+        if (versions.length > 0) {
+          document.getElementById('version-count').textContent = versions[0].version_number;
+          latestDownloadUrl = versions[0].files[0].url;
+        }
+      })
+      .catch(err => console.log('Could not fetch stats:', err));
+
+    function downloadLatest() { 
+      if (latestDownloadUrl) {
+        window.open(latestDownloadUrl, '_blank');
+      }
+    }
+  </script>
+  <header class="topbar">
+      <div class="topbar-title"></div>
+    </header>
+    <div class="row g-4 mb-4">
+    <div class="col-md-6">
+        <div class="stat-card clickable" onclick="window.location.href='/docs.html'" style="cursor: pointer;">
+            <div class="stat-icon info"><i class="bi bi-journal-text"></i></div>
+            <div class="stat-value" id="documentation">Documentation</div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="stat-card clickable" onclick="window.location.href='https://modrinth.com/mod/eclipse_client'" style="cursor: pointer;">
+            <div class="stat-icon info"><i class="bi bi-globe"></i></div>
+            <div class="stat-value" id="webpage">Modrinth's Page</div>
+        </div>
+    </div>
+    </div>
+</body>
+</html>
