@@ -210,7 +210,6 @@
     .status-badge.success { background: rgba(0, 182, 112, 0.15); color: var(--primary-color); }
     .status-badge.warning { background: rgba(251, 191, 36, 0.15); color: #fbbf24; }
     .status-badge.error { background: rgba(248, 113, 113, 0.15); color: #f87171; }
-    .status-badge.docu { background: rgba(31, 0, 0, 0.15); color: #180000; }
     
     .user-avatar {
       width: 36px;
@@ -279,7 +278,7 @@
       <div class="col-md-4">
         <div class="stat-card">
           <div class="stat-icon warning"><i class="bi bi-heart"></i></div>
-          <div class="stat-value" id="likes-count">2</div>.status-badge.error { background: rgba(248, 113, 113, 0.15); color: #f87171; }
+          <div class="stat-value" id="likes-count">2</div>
           <div class="stat-label">Likes</div>
           <div class="stat-change positive"><i class="bi bi-arrow-up"></i> Live from Modrinth</div>
         </div>
@@ -289,7 +288,7 @@
           <div class="stat-icon info"><i class="bi bi-tag"></i></div>
           <div class="stat-value" id="version-count">1.1.0</div>
           <div class="stat-label">Latest Version <i class="bi bi-download ms-1"></i></div>
-          <div class="stat-change"><i class="bi bi-calendar"></i> .status-badge.error { background: rgba(248, 113, 113, 0.15); color: #f87171; }Apr 13, 2026</div>
+          <div class="stat-change"><i class="bi bi-calendar"></i> Apr 13, 2026</div>
         </div>
       </div>
     </div>
@@ -323,13 +322,13 @@
     <div class="row g-4 mb-4">
     <div class="col-md-6">
         <div class="stat-card clickable" onclick="window.location.href='/docs.html'" style="cursor: pointer;">
-            <div class="stat-icon docu"><i class="bi bi-journal-text"></i></div>
+            <div class="stat-icon info"><i class="bi bi-journal-text"></i></div>
             <div class="stat-value" id="documentation">Documentation</div>
         </div>
     </div>
     <div class="col-md-6">
-        <div class="stat-card clickable" onclick="window.location.href='https://modrinth.com/mod/eclipse_client'" style="cursor: pointer;">
-            <div class="stat-icon info"><i class="bi bi-globe"></i></div>
+        <div class="stat-card clickable" onclick="window.location.href='/docs.html'" style="cursor: pointer;">
+            <div class="stat-icon info"><i class="bi bi-journal-text"></i></div>
             <div class="stat-value" id="webpage">Modrinth's Page</div>
         </div>
     </div>
