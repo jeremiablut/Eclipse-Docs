@@ -159,6 +159,19 @@
       align-items: center;
       gap: 8px;
     }
+
+    .changelog-download {
+        background: var(--primary-color);
+        color: #fff;
+        padding: 8px 16px;
+        border-radius: 8px;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        margin-top: 20px;
+        transition: 0.2s;
+    }
   </style>
 </head>
 <body>
@@ -232,7 +245,7 @@
     <section id="changelog">
       <h2>Changelog</h2>
 
-      <h3>Basic UPDATE 1.0.0</h3> <h6>1.21.11</h6>
+      <h3 class="changelog-download">Basic UPDATE 1.0.0</h3>
       <ul class="changelog-list">
         <li><i class="bi bi-check-square-fill text-success"></i> Auto Sprinting</li>
         <li><i class="bi bi-check-square-fill text-success"></i> Fps counter</li>
