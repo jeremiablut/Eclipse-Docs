@@ -263,8 +263,6 @@
     <!-- Topbar -->
     <header class="topbar">
       <div class="topbar-title">Overview</div>
-      <button class="btn btn-light" onclick="openDocs()"><i class="bi bi-book"></i> Docs</button>
-      <button class="btn btn-light" onclick="openWeb()"><i class="bi bi-globe"></i> </button>
     </header>
 
     <!-- Stats Cards -->
@@ -324,5 +322,13 @@
   <header class="topbar">
       <div class="topbar-title"></div>
     </header>
+    <div class="col-md-4">
+        <div class="stat-card clickable" onclick="downloadLatest()" style="cursor: pointer;">
+          <div class="stat-icon info"><i class="bi bi-tag"></i></div>
+          <div class="stat-value" id="version-count">1.1.0</div>
+          <div class="stat-label">Latest Version <i class="bi bi-download ms-1"></i></div>
+          <div class="stat-change"><i class="bi bi-calendar"></i> Apr 13, 2026</div>
+        </div>
+      </div>
 </body>
 </html>
