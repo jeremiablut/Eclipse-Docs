@@ -1,2 +1,0 @@
-# Eclipse-Docs
-Eclipse Docs
