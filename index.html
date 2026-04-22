@@ -299,10 +299,10 @@
   <script>
     let latestDownloadUrl = '';
 
-    // Fetch live stats from Modrinth API
+    // Fetch live stats from Modrinth API (ohne Cache)
     Promise.all([
-      fetch('https://api.modrinth.com/v2/project/eclipse_client').then(r => r.json()),
-      fetch('https://api.modrinth.com/v2/project/eclipse_client/version').then(r => r.json())
+      fetch('https://api.modrinth.com/v2/project/eclipse_client', { cache: 'no-store' }).then(r => r.json()),
+      fetch('https://api.modrinth.com/v2/project/eclipse_client/version', { cache: 'no-store' }).then(r => r.json())
     ])
       .then(([projectData, versions]) => {
         document.getElementById('download-count').textContent = projectData.downloads.toLocaleString();
@@ -313,6 +313,7 @@
         }
       })
       .catch(err => console.log('Could not fetch stats:', err));
+
 
     function downloadLatest() { 
       if (latestDownloadUrl) {
